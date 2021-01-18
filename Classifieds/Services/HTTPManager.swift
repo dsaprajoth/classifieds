@@ -10,7 +10,7 @@ import Foundation
 
 class HTTPManager {
     static let shared: HTTPManager = HTTPManager()
-
+    
     enum HTTPError: Error {
         case invalidURL
         case invalidResponse(Data?, URLResponse?)
@@ -27,15 +27,15 @@ class HTTPManager {
                 completionBlock(.failure(error!))
                 return
             }
-
+            
             guard
                 let responseData = data,
                 let httpResponse = response as? HTTPURLResponse,
                 200 ..< 300 ~= httpResponse.statusCode else {
-                    completionBlock(.failure(HTTPError.invalidResponse(data, response)))
-                    return
+                completionBlock(.failure(HTTPError.invalidResponse(data, response)))
+                return
             }
-
+            
             completionBlock(.success(responseData))
         }
         task.resume()

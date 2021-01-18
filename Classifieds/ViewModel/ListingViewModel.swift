@@ -40,6 +40,7 @@ extension ListingViewModel {
         })
     }
     
+    //For XCTest
     func validateListings(listingObj: Listing) -> String {
         if listingObj.name == ""{
             return "Name Empty"
