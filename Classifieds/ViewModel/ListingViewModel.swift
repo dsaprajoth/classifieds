@@ -39,5 +39,16 @@ extension ListingViewModel {
             }
         })
     }
+    
+    func validateListings(listingObj: Listing) -> String {
+        if listingObj.name == ""{
+            return "Name Empty"
+        } else if listingObj.price == "" {
+            return "Price Empty"
+        } else if listingObj.image_urls.count == 0 && listingObj.image_urls_thumbnails.count == 0 {
+            return "Images Empty"
+        }
+        return "Good"
+    }
 }
 
