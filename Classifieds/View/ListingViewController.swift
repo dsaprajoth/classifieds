@@ -15,11 +15,8 @@ class ListingCustomCell: UITableViewCell {
 }
 
 class ListingViewController: UIViewController {
-    
     @IBOutlet weak var tblListing: UITableView!
-        
     var listingViewModel = ListingViewModel()
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +47,6 @@ extension ListingViewController: UITableViewDataSource  {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listingViewModel.listings.count
     }
-    
 }
 
 extension ListingViewController: UITableViewDelegate {
@@ -68,7 +64,6 @@ extension UIImageView {
         }
         
         URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: { (data, response, error) -> Void in
-            
             if error != nil {
                 print(error ?? "No Error")
                 return

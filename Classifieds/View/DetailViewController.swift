@@ -8,12 +8,10 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-    
     @IBOutlet weak var imgListing: UIImageView!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lblCreatedAt: UILabel!
-        
     var listingDetail: Listing? = nil
     
     override func viewDidLoad() {
@@ -24,5 +22,4 @@ class DetailViewController: UIViewController {
         lblCreatedAt.text = listingDetail?.createdAtFormatted
         imgListing.imageFromServerURL(urlString: listingDetail?.image_urls.first ?? "", PlaceHolderImage: UIImage(systemName: "square.and.arrow.down.fill")!)
     }
-    
 }
